@@ -522,7 +522,7 @@ std::string	HttpResponse::findPhrase(int code)
       {415, "Unsupported Media Type"},
       {416, "Range Not Satisfiable"},
       {417, "Expectation Failed"},
-      {418, "I'm a teapot"},  // RFC 2324 humor
+      {418, "I'm a teapot"},  /*RFC 2324 humor*/
       {421, "Misdirected Request"},
       {422, "Unprocessable Entity"},
       {423, "Locked"},
@@ -564,7 +564,7 @@ bool	HttpResponse::isCgi()
 	{
 		std::string fileExtension = pathToCheck.substr(dotPos + 1);
 		std::transform(fileExtension.begin(), fileExtension.end(), fileExtension.begin(), ::tolower);
-		if (fileExtension != "py") // if want more cgi. add extensions here
+		if (fileExtension != "py")
 			return false;
 	}
 	std::pair<std::string, int> entry = this->_parent->_fileSystem->findWithPath(_reqPath);
@@ -603,13 +603,12 @@ std::string	HttpResponse::getContentType()
 			{"jpeg", "image/jpeg"},
 			{"png", "image/png"},
 			{"gif", "image/gif"},
-			// Add more mappings as needed
 		};
 
 		std::map<std::string, std::string>::const_iterator it = contentTypes.find(fileExtension);
 		if (it != contentTypes.end())
 		{
-			return it->second; // Return the mapped content type
+			return it->second; /*Return the mapped content type*/
 		}
 		else
 		{
@@ -624,7 +623,7 @@ std::string	HttpResponse::getContentType()
 					contentType = contentType.substr(contentType.find_first_not_of(' '));
 				return contentType;
 			}
-			return "application/octet-stream"; // Default for unknown types
+			return "application/octet-stream"; /*Default for unknown types*/
 		}
 	}
 	else
@@ -658,9 +657,9 @@ bool	HttpResponse::hasBeenSent()
 
 void	HttpResponse::parseResponse()
 {
-	if (infoCode == 307 || infoCode == 308) //parse redirection
+	if (infoCode == 307 || infoCode == 308) /*Parse redirection*/
 	{
-		/*status line*/
+		/*Status line*/
 		this->_status = "HTTP/1.1 ";
 		this->_status += std::to_string(infoCode);
 		this->_status += " ";
@@ -678,14 +677,14 @@ void	HttpResponse::parseResponse()
 		imReady = true;
 		return;
 	}
-	/*status line*/
+	/*Status line*/
 	this->_status = "HTTP/1.1 ";
 	this->_status += std::to_string(infoCode);
 	this->_status += " ";
 	this->_status += this->findPhrase(infoCode);
 	this->_status += "\r\n";
 
-	/*headers: content-type, cntent-length, Connection*/
+	/*Headers: content-type, content-length, connection*/
 	this->_headers = "Content-Type:";
 	this->_headers += getContentType();
 	this->_headers += "\r\n";
@@ -698,7 +697,6 @@ void	HttpResponse::parseResponse()
 	this->_headers += getConnection();
 	this->_headers += "\r\n\r\n";
 	
-	/*Note: body is parsed in executeCmd*/
 	std::string	combined = _status + _headers + _body;
 	_response = combined;
 	imReady = true;

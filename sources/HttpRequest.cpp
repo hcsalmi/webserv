@@ -25,9 +25,9 @@ std::vector<std::string> splitLines(const std::string& input)
 	while ((end = input.find("\r\n", start)) != std::string::npos)
 	{
 		lines.push_back(input.substr(start, end - start));
-		start = end + 2;  // Move to the character after the CRLF
+		start = end + 2;  /*Move to the character after CRLF*/
 	}
-	// Handle the last line (including CRLF if present)
+	/*Handle the last line (including CRLF if present)*/
 	if (start < input.size())
 	{
 		lines.push_back(input.substr(start));
@@ -72,8 +72,7 @@ std::string removeTrailing(const std::string& str)
 
 HttpRequest::~HttpRequest()
 {
-	headers.clear();
-	
+	headers.clear();	
 }
 
 HttpRequest::HttpRequest(std::string buffer, int cs, long long maxBodySize) : 
@@ -206,7 +205,7 @@ std::vector<std::string> HttpRequest::splitPipelines(std::string buffer)
 	return lines;
 }
 
-void HttpRequest::handleMultipartFormData() //aka pipe lining
+void HttpRequest::handleMultipartFormData()
 {
 	std::string endBoundary = "--" + _boundary + "--";
 	size_t endBoundaryStartIndex = this->body.find(endBoundary);
@@ -214,7 +213,7 @@ void HttpRequest::handleMultipartFormData() //aka pipe lining
 	{
 		throw std::exception();
 	}
-	this->body = this->body.substr(0, endBoundaryStartIndex); //remove everything after the last boundary
+	this->body = this->body.substr(0, endBoundaryStartIndex); /*Remove everything after the last boundary*/
 
 	std::vector<std::string> parts = splitPipelines(this->body);
 	std::string finalBody = "";
@@ -299,7 +298,7 @@ std::string	HttpRequest::getHeaderValue(std::string key)
 		return this->headers[key];
 }
 
-bool		HttpRequest::compareCs(int cs)
+bool	HttpRequest::compareCs(int cs)
 {
 	if (cs == _cs)
 		return (true);
@@ -443,13 +442,13 @@ void HttpRequest::parseCurrentBuffer(std::string buffer)
 		}
 		catch (std::exception &e)
 		{
-				_leftOverBuffer = lines[0]; // remove \n
+				_leftOverBuffer = lines[0]; /*Remove \n */
 				hasLeftOverBuffer = true;
 				break;
 		}
 	}
 
-	/*handle chunked*/
+	/*Handle chunked*/
 	if (!_isChunked && _headersReceived && method == "POST" && this->headers.count("Transfer-Encoding") > 0)
 	{
 		std::string transferEncoding = this->headers["Transfer-Encoding"];
@@ -459,7 +458,7 @@ void HttpRequest::parseCurrentBuffer(std::string buffer)
 		}
 	}
 
-	/*handle pipelining*/
+	/*Handle pipelining*/
 	if (!_isChunked	&& _headersReceived && !hasBoundary && method == "POST" && this->headers.count("Content-Type") > 0)
 	{
 		std::string contentType = this->headers["Content-Type"];
@@ -495,7 +494,7 @@ void HttpRequest::parseCurrentBuffer(std::string buffer)
 			{
 				requestBody += lines[0] + "\n";
 				lines.erase(lines.begin());
-				_removedBodySize += 1; // for the \r at end of each line that got removed earlier
+				_removedBodySize += 1; /*For the \r at end of each line that got removed earlier*/
 			}
 			this->body += requestBody;
 			if (contentShortEnough() && compareHeaderAndBody())
@@ -540,13 +539,10 @@ void HttpRequest::printAttributes()
     std::cout << "Path: " << path << std::endl;
     std::cout << "Protocol: " << protocol << std::endl;
 
-    // Print headers
     std::cout << "Headers:" << std::endl;
     for (std::map<std::string, std::string>::const_iterator it = headers.begin(); it != headers.end(); ++it) {
         std::cout << it->first << ": " << it->second << std::endl;
     }
-
-    // Print body (if not empty)
     if (!body.empty()) {
         std::cout << "Body: " << body << std::endl;
     }

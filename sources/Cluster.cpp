@@ -130,7 +130,6 @@ void Cluster::addServers(std::vector<pollfd> &pollfds)
 /*							PUBLIC FUNCTIONS								  */
 /******************************************************************************/
 
-/*need to hange this to have each server to have own connection manage and the right one needs to be called*/
 void Cluster::theMainLoop()
 {
     int clientSocket;
@@ -221,7 +220,7 @@ void Cluster::theMainLoop()
             {
                 if (i < this->serverCount)
                 {
-                    // Accept connection on the correct server socket
+                    /*Accept connection on the correct server socket*/
                     clientSocket = accept(this->servers[i].getSocket(), nullptr, nullptr);
 					if (clientSocket != -1)
                     {
@@ -229,11 +228,11 @@ void Cluster::theMainLoop()
 						clientServerMap[clientSocket] = &this->servers[i];
                     }
                 }
-                else /*check from the map which servers connection manager to call*/
+                else /*Check from the map which server's connection manager to call*/
                 {
 					clientSocket = pollfds[i].fd;
     				associatedServer = clientServerMap[clientSocket];
-                    // Handle data on client sockets here
+                    /*Handle data on client sockets*/
                     if (!associatedServer->_connectionManager->handleConnection(pollfds[i].fd))
 					{
 						close(pollfds[i].fd);

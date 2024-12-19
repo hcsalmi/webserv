@@ -52,7 +52,7 @@ int ConnectionManager::findObjectIndex(int cs)
       return static_cast<int>(i);
     }
   }
-  return -1; // Object not found
+  return -1;
 }
 
 int	ConnectionManager::handleResponse()
@@ -198,4 +198,3 @@ bool	ConnectionManager::handleConnection(int cs)
 		return true;
     }
 }
-

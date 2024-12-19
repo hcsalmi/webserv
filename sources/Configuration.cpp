@@ -179,7 +179,6 @@ std::string Configuration::trimTrailingSpaces(const std::string& input)
 
 void Configuration::printMyVals()
 {
-	/*print all server directives. then print all locations*/
 	std::cout << "##server directives##" << std::endl;
 	for (auto& entry : _serverDirectives)
 	{
@@ -220,82 +219,3 @@ std::string	Configuration::getHost()
 {
 	return _host;
 }
-
-
-
-	/*
-	### STILL HAVE TO IMPLEMENT ###
-	-#root for a location //test this. Done. Works
-	-#configure where the uploaded files are saved in within the location block upload_pass // test this
-	-#post // test this
-	-#unbinding sockets // done
-	-#limit for client body size (not in a location block. this is in a server block)//done. test this
-	-#unchunking // done. do more tests
-	-#siegetests // done. perfect
-	-#cgi merge //done // test changes
-	-#redirects // test this
-	-#delete // test this
-	-#test with all data types (images jpg, png, etc) // done
-	-#test POST with curl call (no pipeline) //done
-	-#leaks. //find the f'in data buildup // its about socket and vector buildup. it doesnt grow indefinetly. it grows to a certain point and then stops. // done
-
-	-the default error pages after parse gets them
-	*/
-
-		/*_locations = {
-
-		{
-			"/pages/",
-			{
-				{"POST", ""},
-				{"GET", ""},
-				{"DELETE", ""},
-				{"autoindex", "on"},
-				{"error_page", "/pages/404.html"},
-				{"cgi", "allowed"},
-				{"upload_pass", "/pages/uploads/"},
-			}
-		},
-		{
-			"/cgi-bin/",
-			{
-				{"POST", ""},
-				{"GET", ""},
-				{"autoindex", "on"},
-				{"cgi", "allowed"},
-			}
-		},
-		{
-			"/tests/",
-			{
-				{"GET", ""},
-			}
-		},
-	
-		{
-			"/",
-			{
-				{"error_page", "/pages/404.html"},
-				{"index", "/pages/home_page.html"},
-				{"upload_pass", "/pages/"},
-				{"GET", ""},
-				{"DELETE", ""},
-			}
-		},
-
-		{
-			"/images/",
-			{
-				{"GET", ""},
-			}
-		},
-		{
-			"/pages/uploads/",
-			{
-				{"POST", ""},
-				{"GET", ""},
-				{"DELETE", ""},
-				{"autoindex", "on"},
-			}
-		},
-	};*/

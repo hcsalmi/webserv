@@ -66,8 +66,6 @@ Folder::Folder(std::map<std::string, DirOrFile> folder, std::vector<std::pair<st
 			{
 				_deleteAllowed = true;
 			}
-
-
 			auto it4 = dirConfig.find("cgi");
 			if (it4 != dirConfig.end())
 			{
@@ -129,11 +127,11 @@ Folder& Folder::operator=(const Folder& other)
     _folderContent.clear();
     for (auto [key, value] : other._folderContent)
 	{
-      // Create a new DirOrFile object for each entry
+      /*Create a new DirOrFile object for each entry*/
       _folderContent.emplace(key, DirOrFile(value.amIDir(), value.getFileContent())); // This assumes a copy constructor exists for DirOrFile
     }
 
-    // Copy other primitive members
+    /*Copy other primitive members*/
     _isRedirected = other._isRedirected;
     _redirectPath = other._redirectPath;
     _hasDefaultPage = other._hasDefaultPage;

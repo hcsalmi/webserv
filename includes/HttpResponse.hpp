@@ -36,7 +36,6 @@ class HttpResponse
 
 		void sendResponse();
 
-		
 		bool	isReady();
 		bool	hasBeenSent();
 		bool	hasRunningProcess(){return (_runningProcess);};

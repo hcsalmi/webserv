@@ -18,9 +18,6 @@
 #include <string>
 #include "FileSystem.hpp"
 
-/*if this is a directory, _dirContent has stuff in it and the bool _imDir is true. if this is
-a file, the bool _imDir is false and _fileContent has stuff in it and the map is empty*/
-
 class DirOrFile
 {
 	private:

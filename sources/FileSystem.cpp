@@ -140,7 +140,7 @@ std::pair<std::string, std::string> FileSystem::createPaths(std::string serverRo
 	}
 	else
 	{
-		throw std::runtime_error("location directive invalid. Directory not found within servers root");
+		throw std::runtime_error("Location directive invalid. Directory not found within servers root");
 	}
 	return std::make_pair("", "");
 }

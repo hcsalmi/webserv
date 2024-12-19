@@ -23,7 +23,7 @@
 class Configuration
 {
 	public:
-		Configuration(std::string configData); // read config upon construction // the { } check comes in main
+		Configuration(std::string configData);
 		~Configuration(void);
 
 		void printMyVals();

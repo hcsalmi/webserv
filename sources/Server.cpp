@@ -51,7 +51,6 @@ Server& Server::operator=(Server& other)
 	return *this;
 }
 
-/*port is left*/
 Server::Server(Configuration &configuration, FileSystem *fs, std::vector<std::pair<int,int>> &portsInUse):
 	 _connectionManager(new ConnectionManager(this)),
 	 _fileSystem(fs)
@@ -81,8 +80,8 @@ Server::Server(Configuration &configuration, FileSystem *fs, std::vector<std::pa
 		sockaddr_in serverAddress;
 		std::memset(&serverAddress, 0, sizeof(serverAddress));
 		serverAddress.sin_family = AF_INET;
-		serverAddress.sin_addr.s_addr = INADDR_ANY; // Accept connections on any interface
-		serverAddress.sin_port = htons(configuration.getListenPort()); // Set the port to right one
+		serverAddress.sin_addr.s_addr = INADDR_ANY;
+		serverAddress.sin_port = htons(configuration.getListenPort());
 		if (bind(_serverSocket, reinterpret_cast<sockaddr*>(&serverAddress), sizeof(serverAddress)) == -1)
 		{
 			close(_serverSocket);
