@@ -72,7 +72,16 @@ FileSystem::FileSystem(Configuration &configuration):
 
 FileSystem::FileSystem(FileSystem& src)
 {
-	*this = src;
+	_fileSystem = src._fileSystem;
+	_root = src._root;
+	_index = src._index;
+	_error_pages = src._error_pages;
+	_hasIndex = src._hasIndex;
+	_hasErrorPage = src._hasErrorPage;
+	_numPendingEntries = src._numPendingEntries;
+	_numPendingDeletes = src._numPendingDeletes;
+	_pendingEntries = src._pendingEntries;
+	_pendingDeletes = src._pendingDeletes;
 }
 
 FileSystem::~FileSystem(void)
