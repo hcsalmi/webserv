@@ -6,7 +6,7 @@
 /*   By: lbroms <lbroms@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:41:48 by lbroms            #+#    #+#             */
-/*   Updated: 2024/04/08 22:14:47 by lbroms           ###   ########.fr       */
+/*   Updated: 2024/12/20 22:14:47 by lsalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <sstream>
 #include <iostream>
 #include <map>
+#include <cstring>
 
 class HttpRequest
 {
