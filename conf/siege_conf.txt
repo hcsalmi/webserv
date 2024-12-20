@@ -1,7 +1,7 @@
 server
 {
-    listen 80;
-    host localhost:80;
+    listen 8000;
+    host localhost:8000;
 	location /
 	{
 		GET

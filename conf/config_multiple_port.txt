@@ -1,8 +1,8 @@
 
 server
 {
-    listen 400;
-    host localhost:400;
+    listen 4000;
+    host localhost:4000;
 	server_name serv1;
     root /;
 	location /
@@ -14,8 +14,8 @@ server
 
 server
 {
-    listen 401;
-    host localhost:401;
+    listen 4001;
+    host localhost:4001;
 	server_name serv2;
     root /;
 	location /
@@ -27,8 +27,8 @@ server
 
 server
 {
-    listen 402;
-    host localhost:402;
+    listen 4002;
+    host localhost:4002;
 	server_name serv3;
     root /;
 	location /

@@ -1,8 +1,8 @@
 
 server
 {
-    listen 400;
-    host host1:400;
+    listen 4000;
+    host host1:4000;
 	server_name serv1;
     root /;
 	location /
@@ -14,8 +14,8 @@ server
 
 server
 {
-    listen 400;
-    host host2:400;
+    listen 4000;
+    host host2:4000;
 	server_name serv2;
     root /;
 	location /
@@ -27,8 +27,8 @@ server
 
 server
 {
-    listen 400;
-    host host3:400;
+    listen 4000;
+    host host3:4000;
 	server_name serv3;
     root /;
 	location /

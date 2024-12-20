@@ -1,8 +1,8 @@
 
 server
 {
-    listen 400;
-    host localhost:400;
+    listen 4000;
+    host localhost:4000;
 	server_name serv1;
     root /;
 	error_page 404 /pages/contact.html;
