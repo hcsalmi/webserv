@@ -6,7 +6,7 @@
 /*   By: lbroms <lbroms@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:04 by lbroms            #+#    #+#             */
-/*   Updated: 2024/04/09 18:11:46 by lbroms           ###   ########.fr       */
+/*   Updated: 2024/12/20 18:11:46 by lsalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ std::string HttpResponse::findFreeName(Folder &folder, std::string path)
 			i++;
 			continue;
 		}
-		catch (std::exception)
+		catch (const std::exception &e)
 		{
 			return (name + std::to_string(i) + extension);
 		}
@@ -261,7 +261,7 @@ void	HttpResponse::doPost()
 				try {
 					activeFolder.findEntry(path);
 				}
-				catch (std::exception)
+				catch (const std::exception &e)
 				{
 					activeFolder.createEntry(path, _reqBody);
 					this->_parent->_fileSystem->_pendingEntries.emplace(path, _reqBody);

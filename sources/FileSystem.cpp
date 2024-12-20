@@ -98,7 +98,7 @@ std::string FileSystem::getErrorPage(int errorNum)
 	{
 		return _error_pages.at(errorNum);
 	}
-	catch (std::exception)
+	catch (const std::exception &e)
 	{
 		return "";
 	}
@@ -202,7 +202,7 @@ std::pair<std::string, int> FileSystem::findWithPath(std::string &path)
 		_fileSystem.at(path);
 		return (std::make_pair("", IS_ACCESSIBLE_DIRECTORY));
 	}
-	catch (std::exception)
+	catch (const std::exception &e)
 	{
 		try
 		{
@@ -254,7 +254,7 @@ std::pair<std::string, int> FileSystem::findWithPath(std::string &path)
 				throw;
 			}
 		}
-		catch (std::exception)
+		catch (const std::exception &e)
 		{
 			return (std::make_pair("", NOT_FOUND));
 		}
