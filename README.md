@@ -36,7 +36,8 @@ This Hive Helsinki group project is about writing your own HTTP server modelled 
 • Setup routes with one or multiple of the following rules/configuration (routes wont be using regexp):<br>
 &emsp;◦ Define a list of accepted HTTP methods for the route.<br>
 &emsp;◦ Define a HTTP redirection.<br>
-&emsp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is &emsp;/tmp/www/pouic/toto/pouet).<br>
+&emsp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www,<br>
+&emsp; url /kapouet/pouic/toto/pouet is /tmp/www/pouic/toto/pouet).<br>
 &emsp;◦ Turn on or off directory listing.<br>
 &emsp;◦ Set a default file to answer if the request is a directory.<br>
 &emsp;◦ Execute CGI based on certain file extension (for example .php).<br>
