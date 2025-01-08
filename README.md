@@ -1,4 +1,4 @@
-**webserv** <br>
+# Heading1**webserv** <br>
 <br>
 The gist of it:<br>
 This Hive Helsinki group project is about writing your own HTTP server modelled after NGINX. Not all RFC features are implemented, only the ones specified in the project requirements.<br>
