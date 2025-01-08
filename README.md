@@ -4,7 +4,7 @@ The gist of it:<br>
 This Hive Helsinki group project is about writing your own HTTP server modelled after NGINX. Not all RFC features are implemented, only the ones specified in the project requirements.<br>
 <br>
 
-Requirements<br>
+**Requirements:**<br>
 • Your program has to take a configuration file as argument, or use a default path.<br>
 • You can’t execve another web server.<br>
 • Your server must never block and the client can be bounced properly if necessary.<br>
@@ -27,7 +27,7 @@ Requirements<br>
 • Your server must be able to listen to multiple ports.<br>
 <br>
 
-In the configuration file, you should be able to:<br>
+**In the configuration file, you should be able to:**<br>
 • Choose the port and host of each ’server’.<br>
 • Setup the server_names or not.<br>
 • The first server for a host:port will be the default for this host:port (that means it will answer to all the requests that don’t belong to an other server).<br>
@@ -36,7 +36,7 @@ In the configuration file, you should be able to:<br>
 • Setup routes with one or multiple of the following rules/configuration (routes wont be using regexp):<br>
 &emsp;◦ Define a list of accepted HTTP methods for the route.<br>
 &emsp;◦ Define a HTTP redirection.<br>
-&emsp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is /tmp/www/pouic/toto/pouet).<br>
+&emsp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is &emsp;/tmp/www/pouic/toto/pouet).<br>
 &emsp;◦ Turn on or off directory listing.<br>
 &emsp;◦ Set a default file to answer if the request is a directory.<br>
 &emsp;◦ Execute CGI based on certain file extension (for example .php).<br>
