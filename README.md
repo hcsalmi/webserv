@@ -34,19 +34,19 @@ In the configuration file, you should be able to:<br>
 • Setup default error pages.<br>
 • Limit client body size.<br>
 • Setup routes with one or multiple of the following rules/configuration (routes wont be using regexp):<br>
-&ensp;◦ Define a list of accepted HTTP methods for the route.<br>
-&ensp;◦ Define a HTTP redirection.<br>
-&ensp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is /tmp/www/pouic/toto/pouet).<br>
-&ensp;◦ Turn on or off directory listing.<br>
-&ensp;◦ Set a default file to answer if the request is a directory.<br>
-&ensp;◦ Execute CGI based on certain file extension (for example .php).<br>
-&ensp;◦ Make it work with POST and GET methods.<br>
-&ensp;◦ Make the route able to accept uploaded files and configure where they should be saved.<br>
-&emsp;∗ Because you won’t call the CGI directly, use the full path as PATH_INFO.<br>
-&emsp;∗ For a chunked request, your server needs to unchunk it. The CGI will expect EOF as end of the body.<br>
-&emsp;∗ Same things for the output of the CGI. If no content_length is returned from the CGI, EOF will mark the end of the returned data.<br>
-&emsp;∗ Your program should call the CGI with the file requested as first argument.<br>
-&emsp;∗ The CGI should be run in the correct directory for relative path file access.<br>
-&emsp;∗ Your server should work with one CGI (php-CGI, Python, and so forth).<br>
+&emsp;◦ Define a list of accepted HTTP methods for the route.<br>
+&emsp;◦ Define a HTTP redirection.<br>
+&emsp;◦ Define a directory or a file from where the file should be searched (for example, if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is /tmp/www/pouic/toto/pouet).<br>
+&emsp;◦ Turn on or off directory listing.<br>
+&emsp;◦ Set a default file to answer if the request is a directory.<br>
+&emsp;◦ Execute CGI based on certain file extension (for example .php).<br>
+&emsp;◦ Make it work with POST and GET methods.<br>
+&emsp;◦ Make the route able to accept uploaded files and configure where they should be saved.<br>
+&emsp;&emsp;∗ Because you won’t call the CGI directly, use the full path as PATH_INFO.<br>
+&emsp;&emsp;∗ For a chunked request, your server needs to unchunk it. The CGI will expect EOF as end of the body.<br>
+&emsp;&emsp;∗ Same things for the output of the CGI. If no content_length is returned from the CGI, EOF will mark the end of the returned data.<br>
+&emsp;&emsp;∗ Your program should call the CGI with the file requested as first argument.<br>
+&emsp;&emsp;∗ The CGI should be run in the correct directory for relative path file access.<br>
+&emsp;&emsp;∗ Your server should work with one CGI (php-CGI, Python, and so forth).<br>
 
 
